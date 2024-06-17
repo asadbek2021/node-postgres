@@ -33,6 +33,8 @@ describe('idle timeout', () => {
 
       const removal = new Promise((resolve) => {
         pool.on('remove', () => {
+          console.log('IDLE COUNT --', pool.idleCount)
+          console.log('Total COUNT --', pool.totalCount)
           expect(pool.idleCount).to.equal(0)
           expect(pool.totalCount).to.equal(0)
           resolve()
